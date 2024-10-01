@@ -1,0 +1,294 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: var(--main-ff);
+}
+:root{
+    --main-bg: rgb(243, 255, 189);
+    --main-light-bg: whitesmoke;
+    --main-dark-bg: rgb(1, 15, 20);
+    --main-fc: rgb(61, 61, 61);
+    --main-ff:"Noto Sans Georgian", sans-serif;
+    --main-fz:14px;
+}
+
+header{
+    grid-area: header;
+    background-color: rgb(255, 255, 255);
+    position: fixed;
+    width: 100%;
+    height: 80px;
+    z-index: 10;
+}
+nav{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100%;
+}
+.logo{
+    font-size: var(--main-fz);
+    color: var(--main-fc);
+    font-weight: 600;
+    letter-spacing: 2px;
+    transition: .2s ease-in-out;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+nav span:hover{
+    scale: 1.1;
+}
+nav ul{
+    display: flex;
+    gap: 20px;
+}
+nav ul li{
+    list-style: none;
+    font-size: var(--main-fz);
+    color: var(--main-fc);
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: .2s linear;
+    padding: 5px;
+    letter-spacing: 1px;
+    font-weight: 500;
+}
+nav ul li:hover{
+    border-bottom: 2px solid rgb(31, 59, 100);
+    color: rgb(31, 59, 100);
+}
+nav a{
+    color: white;
+    text-decoration: none;
+    padding: 5px 50px 5px 50px;
+    background-color: rgb(31, 59, 100);
+    border-radius: 20px;
+    border: none;
+    font-size: var(--main-fz);
+}
+
+main{
+    grid-area: main;
+    background-color:rgb(255, 255, 255);
+    display: grid;
+    grid-template-columns: 10% 80% 10%;
+    grid-template-areas: 
+    "left center right";
+}
+.headerImg{
+    height: 600px;
+    width: 100%;
+    object-fit: cover;
+    animation: slide .6s linear;
+}
+@keyframes slide {
+    0%{transform: translateY(-200px); opacity: 0;}
+    100%{transform: translateY(0); opacity: 1;}
+}
+.conteiner{
+    grid-area: center;
+    background-color: var(--main-light-bg);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+    box-shadow: 0px 0px 19px 9px rgba(0,0,0,0.1);
+}
+.headerImgTittle{
+    position: absolute;
+    background-color: rgb(31, 59, 100);
+    top: 200px;
+    left: 20px;
+    font-size: var(--main-fz);
+    color: var(--main-fc);
+    animation: slide .6s linear;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    border-radius: 0px 270px 270px 0px;
+    padding: 60px;
+}
+.headerImgTittle h1{
+    color: rgb(255, 255, 255);
+}
+.headerImgTittle p{
+    color: rgb(229, 229, 229);
+}
+.headerImgTittle a{
+    text-decoration: none;
+    font-size: 20px;
+    color:rgb(255, 255, 255);
+    background-color: rgb(26, 139, 13);
+    border-radius: 20px;
+    padding: 5px 50px 5px 50px;
+    width: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.aboutPage{
+    display: flex;
+}
+.aboutPage section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    padding: 40px;
+    animation: slideBottom .6s linear;
+    animation-timeline: view();
+    animation-range: entry;
+}
+@keyframes slideBottom {
+    0%{transform: translateY(200px); opacity: 0;}
+    100%{transform: translateY(0); opacity: 1;}
+}
+.aboutPage section div{
+    border-left: 5px solid black;
+    padding-left: 10px;
+}
+.aboutPage section h2{
+    font-size: 40px;
+}
+.aboutPage section h3{
+    color: rgb(95, 95, 95);
+}
+.aboutPage img{
+    opacity: 0;
+    width: 500px;
+    animation: slideRight .5s linear forwards;
+    animation-timeline: view();
+    animation-range: entry;
+    border-radius: 10px;
+}
+@keyframes slideRight {
+    0%{transform: translateX(100px);}
+    100%{opacity: 1; transform: translateX(0px);}
+}
+.itemConteiner{
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    border-top: 50px solid rgb(31, 59, 100);
+    padding-top: 100px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.cardConteiner{
+    display: flex;
+    justify-content: space-around;
+    gap: 50px;
+}
+.itemConteiner h2{
+    color: var(--main-fc);
+    font-size: var(--main-fz);
+    font-weight: 400;
+}
+.item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    scale: .8;
+    opacity: 0;
+    width: 300px;
+    height: 600px;
+    background-color: rgb(208, 233, 235);
+    animation: item .9s linear forwards;
+    animation-timeline: view();
+    animation-range: entry;
+    border-radius: 10px;
+}
+.item :hover{
+    transition: .2s linear;
+    opacity: 0.5;
+}
+.item a{
+    text-decoration: none;
+    color: var(--main-fc);
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+.item img{
+    width: 100%;
+    object-fit: cover;
+    border-radius: 10px 10px 0px 0px;
+}
+@keyframes item {
+    100%{scale: 1; opacity: 1;}
+}
+.companyLogo{
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+}
+.companyLogo img{
+    cursor: pointer;
+}
+.contactCall{
+    display: flex;
+    padding: 50px;
+    gap: 100px;
+    justify-content: center;
+}
+.contactCall div{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 50%;
+    gap: 10px;
+}
+.contactCall input{
+    font-size: 20px;
+    padding: 10px 20px 10px 20px;
+    width: 500px;
+    border: 1px solid gray;
+    outline: none;
+}
+.contactCall a{
+    text-decoration: none;
+    color: white;
+    font-size: 24px;
+    background-color: rgb(31, 59, 100);
+    padding: 10px;
+    width: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+}
+footer{
+
+}
+footer div{
+    background-color: rgb(1, 15, 20);
+    display: flex;
+    justify-content: space-around;
+    height: 200px;
+    align-items: center;
+    color: #dcdcdc;
+    gap: 20px;
+}
+footer a{
+    text-decoration: none;
+    color: #dcdcdc;
+}
+footer span{
+    height: 100%;
+    width: 5px;
+    background-color: #dcdcdc;
+}
+.socialMedia{
+    display: flex;
+    justify-content: space-evenly;
+    background-color: rgb(1, 15, 20);
+    border-top: 2px solid #dcdcdc;
+    font-size: 60px;
+    padding: 20px;
+}
